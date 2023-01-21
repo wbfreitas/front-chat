@@ -1,0 +1,33 @@
+.loding-container {
+    display: flex;
+    position: absolute;
+    top: 0;
+    min-height: 100vh;
+    width: 100%;
+    align-items: center;
+    left: 0;
+    justify-content: center;
+}
+
+.add-circle {
+    .mat-icon {
+        color: #e10c98;
+    }
+}
+
+::ng-deep{
+    .mat-progress-spinner circle, .mat-spinner circle {
+        stroke: #e10c98;
+    }
+}
+
+.add-circle {
+    display: flex;
+    cursor: pointer;
+    .mat-icon {
+        margin-right: 16px;
+        margin-bottom: 20px;
+    }
+    font-weight: bold;
+}
+

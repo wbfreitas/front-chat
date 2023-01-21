@@ -1,0 +1,48 @@
+<div class="cadastro-container" *ngIf="!sucesso">
+    <p class="error" *ngIf="error">Já cadastro para este usuário</p>
+    <form [formGroup]="form">
+                <h2>Cadastro</h2>
+                <div class="form-field">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Digite seu nome</mat-label>
+                        <input matInput type="text" placeholder="maria" formControlName="nome" required>
+                    </mat-form-field>
+                </div>
+                
+                <div class="form-field">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Digite seu sobrenome</mat-label>
+                        <input matInput type="text" placeholder="silva" formControlName="sobrenome" required>
+                    </mat-form-field>
+                </div>
+
+                <div class="form-field">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Digite seu email</mat-label>
+                        <input matInput type="email" placeholder="email@example.com" formControlName="email" required>
+                    </mat-form-field>
+                </div>
+
+                <div class="form-field">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Digite sua senha</mat-label>
+                        <input matInput type="password" placeholder="******" formControlName="senha" required>
+                    </mat-form-field>
+                </div>
+
+                <div class="form-field" *ngIf="!logado">
+                        <mat-checkbox class="" formControlName="consultora">É consultora?</mat-checkbox>
+                </div>
+                
+            <div class="form-buttons">
+                <button class="button button-primary" 
+                        (click)="cadastrar()">{{logado ? 'Atualizar' : 'Cadastrar'}}</button>
+            </div>
+        </form>
+</div>
+
+<div *ngIf="sucesso">
+    <p *ngIf="!logado">Usuário cadastado com sucesso. <a [routerLink]="['/login']">clique aqui!</a> para fazer o login.</p> 
+    <p *ngIf="logado">Usuário  com sucesso. <a [routerLink]="['']">ir para home</a></p> 
+</div>
+

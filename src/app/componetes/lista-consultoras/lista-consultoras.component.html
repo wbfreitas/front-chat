@@ -1,0 +1,7 @@
+<h2>Consultoras</h2>
+
+<div *ngFor="let consultora of consultoras$ | async;" (click)="abrirConversa(consultora)">
+      <ng-container>
+        <app-card [person]="consultora" [voltar]="false"></app-card>
+      </ng-container>
+</div>

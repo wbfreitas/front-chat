@@ -1,0 +1,33 @@
+.cadastro-container {
+    margin-top: 20px;
+    .mat-form-field {
+        width: 100%;
+    }    
+    button {
+        background-color: #ffc1cb;
+        width: 100%;
+        padding: 8px;
+        border: none;
+        color: #e10c99;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 18px;
+    }
+    .error {
+        color: red;
+    }
+}
+
+a {
+    color: black;
+    font-weight: bold;
+}
+
+::ng-deep {
+    .mat-form-field-flex {
+        background: transparent !important;
+    }
+    .mat-input-element {
+        caret-color: #e10c99;
+    }
+}

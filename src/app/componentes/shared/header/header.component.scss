@@ -1,0 +1,30 @@
+.mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    background: pink;
+    &.consultora {
+        background: #c0f6ff;
+    }
+    h1 {
+        text-decoration: underline;
+        color: #e10a98;
+    }
+    button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        &:hover {
+            opacity: 0.2;
+        }
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        .mat-icon {
+            font-size: 36px;
+            margin-right: 16px;
+            padding: 0;
+        }
+    }
+}

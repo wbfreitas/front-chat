@@ -1,0 +1,26 @@
+
+<app-card [person]="person" [voltar]="true"></app-card>
+<mat-progress-bar *ngIf="loading" mode="indeterminate" ></mat-progress-bar>
+<div class="chat-container">
+  <ng-container *ngIf="chats$">
+    <div class="chat-box" *ngFor="let chat of chats$ | async;" [ngClass]="{'falante': chat.talkerID == idLogado  }" >
+        <p >
+            {{chat.message}}
+            <span>{{chat.create | date:"h:mm a"}}</span>
+        </p>
+        <mat-icon class="delete-icon" (click)="delete(chat.id)">delete</mat-icon>
+    </div>
+  </ng-container>
+  <div class="input-container">
+    <mat-form-field class="form-mensagem">
+      <mat-label>Digite uma mensagem</mat-label> 
+      <input matInput type="text" [(ngModel)]="value">
+      <span *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+        <mat-icon>close</mat-icon>
+      </span>
+    </mat-form-field>
+    <button [attr.disabled]="loading ? true : null" (click)="sendMsg()">
+      <mat-icon class="send-icon">send</mat-icon>
+    </button>
+  </div>
+</div>

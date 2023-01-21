@@ -1,0 +1,21 @@
+<div *ngIf="isMamae" class="add-circle" [routerLink]="['/consultoras']">
+  <mat-icon>
+    search
+  </mat-icon>
+  procurar uma consultora
+</div>
+<h2>Conversas</h2>
+
+<div *ngIf="chats$ | async as chats;" >
+  <div *ngFor="let chat of chats" (click)="abrirConversa(chat)">
+        <ng-container>
+          <app-card [person]="chat" [voltar]="false"></app-card>
+        </ng-container>
+  </div>
+  <ng-container *ngIf="!(chats || [])[0]">
+    <p>Você ainda não inciou uma conversa.</p>
+  </ng-container>
+</div>
+<div class="loding-container"  *ngIf="loading">
+    <mat-spinner></mat-spinner>
+</div>

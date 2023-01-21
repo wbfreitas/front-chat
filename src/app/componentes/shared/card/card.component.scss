@@ -1,0 +1,28 @@
+    .mat-card {
+        cursor: pointer;
+        border-radius: 0;
+    }
+
+    .mat-card-header {
+        padding-left: 12px;
+    }
+    
+    .person-header-image {
+        background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+        background-size: cover;
+        border: 1px solid #e10a98;
+    }
+    
+    .person-card-icon {
+        display: flex;
+        justify-content: space-between;
+        color: #e10a98;
+        padding-bottom: 8px;
+    }
+
+    .voltar {
+        cursor: default;
+        .icon-back {
+            cursor: pointer;
+        }
+    }

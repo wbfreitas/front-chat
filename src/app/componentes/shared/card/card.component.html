@@ -1,0 +1,15 @@
+<mat-card class="person-card" [ngClass]="{'voltar': voltar }">
+    <div class="person-card-icon" >
+      <mat-icon class="icon-back" *ngIf="voltar" routerLink="">
+       arrow_back 
+      </mat-icon>
+      <mat-icon>
+        chat
+      </mat-icon>
+    </div>
+    <mat-card-header>
+      <div mat-card-avatar class="person-header-image"></div>
+      <mat-card-title>{{person.nome}} {{person.sobrenome}} - {{person.estado}}</mat-card-title>
+      <mat-card-subtitle>{{person.email}}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>

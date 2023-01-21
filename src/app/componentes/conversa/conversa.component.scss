@@ -1,0 +1,70 @@
+.person-header-image {
+background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+background-size: cover;
+border: 1px solid #e10a98;
+}
+
+.person-card-icon {
+    display: flex;
+    justify-content: end;
+    color: #e10a98;
+}
+
+.chat-container {
+    .chat-box {
+        padding: 16px 0 0 8px;
+        display: flex;
+        align-items: center;
+        .delete-icon {
+            cursor: pointer;
+        }
+        &.falante {
+            text-align: right;
+            justify-content: end;
+            p {
+            background-color: #b7d5e5;
+            }
+        }
+    }
+    p {
+        background-color: #e10a98;
+        padding: 5px 10px;
+        border-radius: 10px;
+        max-width: 60%;
+    }
+    span {
+        display: block;
+    }
+
+    .input-container {
+        display: flex;
+        align-items: center;
+
+        [disabled] {
+            opacity: 0.3;
+        }
+
+        button {
+            background: transparent;
+            border: none;
+        }
+        
+        .form-mensagem {
+            flex-grow: 1;
+        }
+
+        .send-icon {
+            color: #e10a98;
+            padding-left: 8px;
+            padding-right: 8px;
+            cursor: pointer;
+        }
+    }
+
+}
+
+::ng-deep {
+    .mat-progress-bar-fill::after {
+        background-color: #e10c98 !important;
+    }
+}

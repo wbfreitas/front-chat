@@ -1,0 +1,16 @@
+<mat-toolbar [ngClass]="{'consultora': !isMamae}">
+  <div class="logo" [routerLink]="['']">
+    <mat-icon>
+      pregnant_woman
+      </mat-icon>
+      <h1>Consultoria na Amamentação</h1>
+  </div>
+  <div>
+    <button mat-icon-button class="" aria-label="" *ngIf="showSair" [routerLink]="['/cadastro' ]">
+      <mat-icon >person</mat-icon>
+    </button>
+    <button mat-icon-button class="" aria-label="" *ngIf="showSair" (click)="logoff()">
+      <mat-icon >logout</mat-icon>
+    </button>
+  </div>
+  </mat-toolbar>

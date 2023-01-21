@@ -1,0 +1,38 @@
+.login-container {
+    margin-top: 20px;
+    .mat-form-field {
+        width: 100%;
+    }    
+    button {
+        background-color: #ffc1cb;
+        width: 100%;
+        padding: 8px;
+        border: none;
+        color: #e10c99;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .error {
+        color: red;
+    }
+
+     .registro {
+        text-align: center;
+        padding-top: 16px;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+        a {
+            color: black;
+        }
+    }
+}
+
+::ng-deep {
+    .mat-form-field-flex {
+        background: transparent !important;
+    }
+    .mat-input-element {
+        caret-color: #e10c99;
+    }
+}

@@ -1,0 +1,9 @@
+.main-container {
+    display: flex;
+    justify-content: center;
+    .main-box {
+        width: 100%;
+        max-width: 500px;
+        margin-top: 16px;
+    }
+}
