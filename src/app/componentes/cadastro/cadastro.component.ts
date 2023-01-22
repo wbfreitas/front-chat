@@ -19,12 +19,13 @@ export class CadastroComponent implements OnInit {
     this.form = this.getFom(null);
     this.service.getUserStorage().subscribe(user => {
       this.form = this.getFom(user)
-      this.logado = true;
       this.userLogado = user;
-    });
+      
+    }).unsubscribe();
   }
 
   ngOnInit(): void {
+    this.logado = !!localStorage.getItem("token");
   }
 
   getFom(user: PersonModel | null) {
@@ -33,11 +34,13 @@ export class CadastroComponent implements OnInit {
       senha: ['', Validators.required],
       nome: [user?.nome,Validators.required],
       sobrenome: [user?.sobrenome,Validators.required],
-      consultora: [!user?.mamae],
+      consultora: [false],
     });
   }
 
   cadastrar() {
+    this.logado = true;
+    console.log(this.logado);
     if(!this.form.valid) return;
     
     const form = this.form.value;
@@ -46,7 +49,8 @@ export class CadastroComponent implements OnInit {
       mamae: !form['consultora'] 
       };
 
-      if(this.logado) {
+      if(this.logado || localStorage.getItem('token')) {
+        this.logado = true;
         body.id = this.userLogado.id;
         body.mamae = this.userLogado.mamae;
       }

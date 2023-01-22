@@ -8,13 +8,13 @@
             {{chat.message}}
             <span>{{chat.create | date:"h:mm a"}}</span>
         </p>
-        <mat-icon class="delete-icon" (click)="delete(chat.id)">delete</mat-icon>
+        <mat-icon class="delete-icon" *ngIf="chat.talkerID == idLogado" (click)="delete(chat.id)">delete</mat-icon>
     </div>
   </ng-container>
   <div class="input-container">
     <mat-form-field class="form-mensagem">
       <mat-label>Digite uma mensagem</mat-label> 
-      <input matInput type="text" [(ngModel)]="value">
+      <input matInput type="text" [(ngModel)]="value" (keyup.enter)="sendMsg()" autocomplete="off">
       <span *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
         <mat-icon>close</mat-icon>
       </span>

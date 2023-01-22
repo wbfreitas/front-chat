@@ -45,6 +45,7 @@ export class ClienteServiceService {
     localStorage.clear();
     this.setLogoff();
     this.router.navigate(['login']);
+    this.userStorage$.next({} as PersonModel);
   }
 
   getUserStorage() {

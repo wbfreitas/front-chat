@@ -24,7 +24,7 @@ export class ListaConversasComponent implements OnInit {
   ngOnInit(): void {
     this.chats$ = this.service.chats()
     setTimeout( () => this.loading = false, 3000);
-    this.service.getUserStorage().subscribe(user => this.isMamae = user?.mamae);
+    this.service.getUser().subscribe(user => this.isMamae = user?.mamae);
   }
 
 }

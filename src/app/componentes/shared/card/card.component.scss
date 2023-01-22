@@ -8,10 +8,14 @@
     }
     
     .person-header-image {
-        background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+            background-image: url('/assets/mamae.png');
         background-size: cover;
         border: 1px solid #e10a98;
+        &.mamae {
+            background-image: url('/assets/consultora.png');
+        }
     }
+
     
     .person-card-icon {
         display: flex;
