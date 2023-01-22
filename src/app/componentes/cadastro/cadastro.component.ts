@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { PersonModel } from 'src/app/model/person.model';
 import { ClienteServiceService } from 'src/app/service/cliente-service.service';
 
@@ -15,17 +16,20 @@ export class CadastroComponent implements OnInit {
   sucesso = false;
   logado = false;
   userLogado: PersonModel = {} as PersonModel;
-  constructor(private fb:FormBuilder, private service: ClienteServiceService) { 
+  constructor(private fb:FormBuilder, private service: ClienteServiceService, private activatedRoute: ActivatedRoute) { 
     this.form = this.getFom(null);
     this.service.getUserStorage().subscribe(user => {
       this.form = this.getFom(user)
       this.userLogado = user;
       
     }).unsubscribe();
+    this.activatedRoute.params.subscribe(p => {
+      this.logado = p['update'] == 'true';
+    });
   }
 
+
   ngOnInit(): void {
-    this.logado = !!localStorage.getItem("token");
   }
 
   getFom(user: PersonModel | null) {
@@ -39,18 +43,13 @@ export class CadastroComponent implements OnInit {
   }
 
   cadastrar() {
-    this.logado = true;
-    console.log(this.logado);
-    if(!this.form.valid) return;
-    
     const form = this.form.value;
     const body = {
       ...form,
       mamae: !form['consultora'] 
       };
 
-      if(this.logado || localStorage.getItem('token')) {
-        this.logado = true;
+      if(this.logado) {
         body.id = this.userLogado.id;
         body.mamae = this.userLogado.mamae;
       }

@@ -29,7 +29,7 @@ const routes: Routes = [
   component: LoginComponent 
  },
  {
-  path: "cadastro",
+  path: "cadastro/:update",
   component: CadastroComponent 
  },
 ];

@@ -6,7 +6,7 @@
       <h1>Consultoria na Amamentação</h1>
   </div>
   <div>
-    <button mat-icon-button class="" aria-label="" *ngIf="showSair" [routerLink]="['/cadastro' ]">
+    <button mat-icon-button class="" aria-label="" *ngIf="showSair" [routerLink]="['/cadastro', true ]">
       <mat-icon >person</mat-icon>
     </button>
     <button mat-icon-button class="" aria-label="" *ngIf="showSair" (click)="logoff()">
